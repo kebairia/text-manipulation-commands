@@ -1,0 +1,10 @@
+#+STARTUP:          content showstars indent
+#+EXCLUDE_TAGS:     journal noexport
+#+PROPERTY: header-args:sh :session *awk*
+#+PROPERTY: header-args    :results output
+#+PROPERTY: header-args:   :tangle ~/dox/wrk/txt_man_cmds/awk.sh
+#+PROPERTY: header-args:   :dir /tmp/awk
+
+#+begin_src sh :dir /tmp/awk
+  awk --version
+#+end_src

@@ -1,10 +1,71 @@
 #+STARTUP:          content showstars indent
 #+EXCLUDE_TAGS:     journal noexport
-#+PROPERTY: header-args:sh :session *awk*
-#+PROPERTY: header-args    :results output
-#+PROPERTY: header-args:   :tangle ~/dox/wrk/txt_man_cmds/awk.sh
-#+PROPERTY: header-args:   :dir /tmp/awk
+# #+PROPERTY: header-args:sh :session *awk*
+# #+PROPERTY: header-args    :results output
+# #+PROPERTY: header-args:   :tangle ~/dox/wrk/txt_man_cmds/awk.sh
+# #+PROPERTY: header-args:   :dir /tmp/awk
 
-#+begin_src sh :dir /tmp/awk
+#+name: awk_version
+#+begin_src sh :results output
   awk --version
 #+end_src
+
+#+RESULTS: awk_version
+#+begin_example
+GNU Awk 5.1.0, API: 3.0 (GNU MPFR 4.1.0-p13, GNU MP 6.2.1)
+Copyright (C) 1989, 1991-2020 Free Software Foundation.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see http://www.gnu.org/licenses/.
+#+end_example
+
+#+RESULTS:
+#+begin_example
+GNU Awk 5.1.0, API: 3.0 (GNU MPFR 4.1.0-p13, GNU MP 6.2.1)
+Copyright (C) 1989, 1991-2020 Free Software Foundation.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see http://www.gnu.org/licenses/.
+#+end_example
+
+First, let's create a file with the following content
+#+begin_src sh :results none
+  echo "01 02 03 04" > myfile
+#+end_src
+
+=awk= command act as a filter 
+#+begin_src sh
+  awk '{print $1,$2}' myfile
+#+end_src
+
+#+RESULTS:
+: 01 02
+#+html: <details><summary> <b> What i've learned so far </b></summary>
+Awk creates a variable for each field (column) in a record (line) ($1, $2 … $NF). $0 refers to the whole record.
+You can print out fields like this:
+  
+#+begin_src sh
+  awk '{ print $1, $2, $7 }'
+#+end_src
+
+#+html: </details>
